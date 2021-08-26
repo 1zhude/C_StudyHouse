@@ -45,11 +45,5 @@ int main(void *arg)
         }
         printf("\n");// 换行
     }
-    // while(1)
-    // {
-    //     printf("%d",count);
-    //     printf("%c \n",14850192); //打印黑格
-    //     count++;
-    // }
     return (0);
 }
