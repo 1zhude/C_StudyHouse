@@ -10,7 +10,7 @@
 # include<windows.h>
 // ========================================================================
 // 函数名称：main
-// 函数功能：输出国际象棋棋盘
+// 函数功能：输出带有笑脸的楼梯
 // 输入参数：无
 // 输出参数：无
 // 全局变量：无
@@ -27,18 +27,12 @@ int main(void *arg)
     unsigned int board_list = 0;// 定义‘列’变量
    
     SetConsoleOutputCP(MS_DOS_OUTPUT_CP);// 设置终端可输出拓展ASCII码
-    for(board_line = 0; board_line < 8; board_line++)// 行循环
+    printf("\1\1 \n"); //打印笑脸 
+    for(board_line = 0; board_line < 11; board_line++)// 行循环
     {
-        for(board_list = 0; board_list < 8; board_list++)// 列循环
+        for(board_list = 0; board_list < board_line; board_list++)// 列循环
         {
-            if((board_line +board_list) % 2 == 0)
-            {
-               printf("%c%c", 219,219); //打印黑格       
-            }
-            else
-            {
-               printf("   "); //打印黑格       
-            }
+            printf("%c%c", 219,219); //打印黑格       
         }
         printf("\n");// 换行
     }
