@@ -16,13 +16,47 @@
 // 全局变量：无
 // 调用模块：
 // ========================================================================
-int main(void *arg)
+#include<stdio.h>
+#include<string.h>
+
+int main(void)
 {
-    unsigned int b_InputNumbner = 0;// 学生分数
-    char b_StudentGrade = '0';// 学生级别
-    printf("Please input one student score\n"); // 打印信息      
-    scanf("%d", &b_InputNumbner);// 获取输入数据  
-    b_StudentGrade = b_InputNumbner >= 90 ? 'A':(b_InputNumbner >= 60 ? 'B':'C');// 根据成绩对学生进行分级   
-    printf("%d is %c \n", b_InputNumbner, b_StudentGrade);// 打印信息  
-    return (0);
+	char s[100] = { "This is C programming text" };
+	char t[100] = { "This is a text for C programming" };
+	
+	int i = 0;
+	int j = 0;
+	int count = 0;
+	int start_count = 0;
+	int max = 0;
+
+	for (i= 0; i <= strlen(s) ; i++)
+	{
+		for(j = 0; j <= strlen(t); j++)// 字符串s中单个字符与字符串t中所有字符比较
+		{
+			if ((s[i] == t[j]) && (t[j] != ' ') && (i != strlen(s)))// 判断相同字符
+			{
+				count++;// 单词长度计数
+				i++;// 单词逐个字母比较移位
+			}
+			else 
+			{
+				i = count > 0 ? i - count: i;// 将i恢复循环计数	
+				if (count > max)// 判断是否位最长相同单词	
+				{
+					max = count;// 保存单词长度
+					start_count = j -max;// 相同单词在字符串的开始位
+				}
+				count = 0; // 清空单词长度
+			}
+		}	
+	}
+	
+	// 打印信息
+	for (i = 0; i < max; i++)
+	{
+		printf("%c", t[start_count + i]);
+	}
+	printf("\n");
+	return 0;		
 }
