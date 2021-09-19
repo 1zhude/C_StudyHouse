@@ -1,62 +1,64 @@
 /*
 * 项目名称： 一个C语言的用例
-* 项目功能： 练习使用条件运算符
+* 项目功能： 1求两个无符号整型变量的最大公约数以及最小公倍数
 * 项目时间： 2021-08-26
 * 项目作者： ZZD
 */
 // ===================== 系统头文件 =======================================
 # include<stdio.h>
 # include<math.h>
+// ===================== 全局宏定义声明 ====================================
+#define swap(A,B)   A = (A^B), B = (A^B), A = (A^B);// 交换A、B
 // ========================================================================
 // 函数名称：main
-// 函数功能：1.从键盘获取学生成绩
-//          2.根据学生成绩对学生分为A、B、C
+// 函数功能：1.从键盘获取两个无符号整型变量
+//           2.求出两个数的最大公约数和以及最小公倍数
 // 输入参数：无
 // 输出参数：无
 // 全局变量：无
 // 调用模块：
 // ========================================================================
-#include<stdio.h>
-#include<string.h>
 
 int main(void)
 {
-	char s[100] = { "This is C programming text" };
-	char t[100] = { "This is a text for C programming" };
-	
-	int i = 0;
-	int j = 0;
-	int count = 0;
-	int start_count = 0;
-	int max = 0;
+	int i32Ret = -1;
+	unsigned int b_i32InputA = 0x0;// 输入变量A
+	unsigned int b_i32InputB = 0x0;// 输入变量B
+	unsigned int b_i32InputMultiply = 0x0;// 输入乘积
+	unsigned int b_i32Integer = 0x0;// 整数
+	unsigned int b_i32Remainder = 0x0;// 余数
 
-	for (i= 0; i <= strlen(s) ; i++)
+	printf("please input two numbers\n");// 打印信息
+	i32Ret = scanf("%d %d", &b_i32InputA, &b_i32InputB);// 键盘输入两个整数
+	if(i32Ret < 0)
 	{
-		for(j = 0; j <= strlen(t); j++)// 字符串s中单个字符与字符串t中所有字符比较
+		printf("input number failed\n");// 打印信息
+	}
+
+	b_i32InputMultiply = b_i32InputA * b_i32InputB; // 求输入变量的乘积
+
+	// 判断输入变量A、B大小
+	if(b_i32InputA < b_i32InputB)
+	{
+		swap(b_i32InputA, b_i32InputB);// 交换A、B
+	}
+	// 进入死循环
+	while(1)
+	{
+		b_i32Integer = b_i32InputA /b_i32InputB;// 取整
+		b_i32Remainder = b_i32InputA %b_i32InputB;// 取余
+		if(b_i32Remainder == 0)
 		{
-			if ((s[i] == t[j]) && (t[j] != ' ') && (i != strlen(s)))// 判断相同字符
-			{
-				count++;// 单词长度计数
-				i++;// 单词逐个字母比较移位
-			}
-			else 
-			{
-				i = count > 0 ? i - count: i;// 将i恢复循环计数	
-				if (count > max)// 判断是否位最长相同单词	
-				{
-					max = count;// 保存单词长度
-					start_count = j -max;// 相同单词在字符串的开始位
-				}
-				count = 0; // 清空单词长度
-			}
-		}	
+			printf("MAX GCD is : %d\n",b_i32InputB);// 输出最大公约数
+			printf("MIN LCM is : %d\n",b_i32InputMultiply /b_i32InputB);// 输出最小公倍数
+			break;
+		}
+		else
+		{
+			b_i32InputA = b_i32InputB; // 将上一次被除数赋值给除数
+			b_i32InputB = b_i32Remainder; // 将上一次余数赋值给被除数
+		}
 	}
-	
-	// 打印信息
-	for (i = 0; i < max; i++)
-	{
-		printf("%c", t[start_count + i]);
-	}
-	printf("\n");
-	return 0;		
+
+	return 0;
 }
