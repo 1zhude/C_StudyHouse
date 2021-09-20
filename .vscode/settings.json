@@ -14,6 +14,8 @@
         "vector": "c",
         "sstream": "c",
         "streambuf": "c",
-        "tuple": "c"
+        "tuple": "c",
+        "cstdlib": "c",
+        "stdio.h": "c"
     }
 }
