@@ -53,6 +53,10 @@ void Factorial(unsigned long long *Number)
 	unsigned int count = 0x0;
 	unsigned long long NumberFactorial = *Number;
 	*Number = 0x01;
+	if(*Number == 0)
+	{
+		*Number *= 1  ;// 0!为1
+	}
 	for (count = 1; count <= NumberFactorial; count++)
 	{
 		*Number *= count  ;// 累乘运算
