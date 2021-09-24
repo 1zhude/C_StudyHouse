@@ -28,7 +28,6 @@ int main(void)
 	}
 	fflush(stdin);// 清空输入缓冲区
 	
-	// 循环查找是否又相同字符
 	while(1)
 	{
 		if((i32InputNnmber % count1) == 0 && i32InputNnmber != count1 )
