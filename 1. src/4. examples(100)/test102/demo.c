@@ -28,7 +28,8 @@ int testarray(unsigned short testA[])
 }
 int main(void)
 {
-	unsigned short test[5] = {2, 5, 6, 4, 10};
-	testarray(test);
+	int temp;
+	temp = putchar();
+	printf("sizeof");
 	return 0;		
 }
