@@ -1,0 +1,1 @@
+  -LC:/Users/ZhouW/.conan/data/xege/20.08/_/_/package/e5f5e390dc6ab66855ccd0569f10ec59b91cfbb2/lib  -lgraphics64 -lgdiplus -luuid -lmsimg32 -lgdi32 -limm32 -lole32 -loleaut32 -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
