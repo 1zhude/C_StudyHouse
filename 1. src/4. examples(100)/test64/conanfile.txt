@@ -1,0 +1,5 @@
+[requires]
+xege/20.08
+
+[generators]
+cmake
